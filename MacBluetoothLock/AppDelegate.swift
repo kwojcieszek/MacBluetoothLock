@@ -20,10 +20,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(togglePopover(_:))
           }
           popover.contentViewController = MainViewController.freshController()
+        
+        Worker.shared().start(5,"AirPods Pro",true)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-
+        
+        Worker.shared().stop()
+        
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {

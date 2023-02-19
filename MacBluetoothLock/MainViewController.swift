@@ -25,7 +25,7 @@ class MainViewController: NSViewController {
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+       
         }
     }
     
@@ -33,11 +33,17 @@ class MainViewController: NSViewController {
         timeOfSeconds.stringValue = timeOfSecondsStepper.stringValue
     }
     
-    
     @IBAction func connectedBeforeScreenLockAction(_ sender: NSSwitch) {
     }
     
     
     @IBAction func enableScreenLockAction(_ sender: NSSwitch) {
+        
+        if(self.enableScreenLock.state == NSControl.StateValue.on){
+            Worker.shared().start(5,"AirPods Pro",true)
+        }else{
+            Worker.shared().stop()
+        }
+            
     }
 }

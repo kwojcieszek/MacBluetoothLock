@@ -66,7 +66,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-717" y="-431"/>
+            <point key="canvasLocation" x="-430" y="-653"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="AFy-8m-IBo">
@@ -106,7 +106,7 @@
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SES-Eg-N3B">
                                 <rect key="frame" x="19" y="184" width="264" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="8HI-e1-Cv9">
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="8HI-e1-Cv9">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -149,7 +149,7 @@
                                     <action selector="connectedBeforeScreenLockAction:" target="WlU-lH-XBO" id="xlP-Fb-ile"/>
                                 </connections>
                             </switch>
-                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="a78-S8-Wuc">
+                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" state="on" translatesAutoresizingMaskIntoConstraints="NO" id="a78-S8-Wuc">
                                 <rect key="frame" x="18" y="23" width="42" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
@@ -176,7 +176,7 @@
                 </viewController>
                 <customObject id="Bx5-dW-tYL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-680" y="37"/>
+            <point key="canvasLocation" x="-672" y="-299"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="wb0-eU-1cU">
@@ -214,7 +214,7 @@
                 </viewController>
                 <customObject id="Obj-kE-7Pl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-102" y="153"/>
+            <point key="canvasLocation" x="-84" y="228"/>
         </scene>
     </scenes>
 </document>
