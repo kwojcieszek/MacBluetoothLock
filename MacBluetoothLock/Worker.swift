@@ -10,10 +10,11 @@ import Foundation
 class Worker{
     
     private var timer: Timer?
-    private var seconds:Int = 0
-    private var secondsHavePassed = 0
+    private var timeBeforeLock:Int = 0
+    private var timeHavePassed = 0
     private var deviceName:String = ""
     private var connectedBeforeScreenLock:Bool = true
+    private var connected:Bool = false
     private let bluetoothDevices = BluetoothDevices()
     private let screenLock = ScreenLock()
     
@@ -26,9 +27,9 @@ class Worker{
             return worker
     }
     
-    func start(_ seconds:Int,_ deviceName:String,_ connectedBeforeScreenLock:Bool){
+    func start(_ timeBeforeLock:Int,_ deviceName:String,_ connectedBeforeScreenLock:Bool){
         
-        self.seconds = seconds
+        self.timeBeforeLock = timeBeforeLock
         self.deviceName = deviceName
         self.connectedBeforeScreenLock = connectedBeforeScreenLock
         
@@ -46,15 +47,21 @@ class Worker{
     
     @objc func bluetoothCheckerAction() {
         
+        if(self.deviceName == ""){
+            return
+        }
+        
         if(bluetoothDevices.isConnected(self.deviceName)){
-            secondsHavePassed = 0
+            self.connected = true
+            self.timeHavePassed = 0
         }else{
-            secondsHavePassed+=1
+            self.timeHavePassed+=1
         }
 
-        if(secondsHavePassed>=seconds){
-            secondsHavePassed = 0
-            screenLock.lock()
+        if(self.timeHavePassed>=self.timeBeforeLock && ((self.connectedBeforeScreenLock == true && self.connected == true) || self.connectedBeforeScreenLock == false)){
+            self.connected = false
+            self.timeHavePassed = 0
+            self.screenLock.lock()
         }
     }
 }

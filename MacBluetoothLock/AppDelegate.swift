@@ -18,16 +18,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
             button.action = #selector(togglePopover(_:))
-          }
-          popover.contentViewController = MainViewController.freshController()
+        }
+        popover.contentViewController = MainViewController.freshController()
         
-        Worker.shared().start(5,"AirPods Pro",true)
+        WorkerService().getConfigAndStartIfExist()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        
         Worker.shared().stop()
-        
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {

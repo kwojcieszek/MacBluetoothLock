@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		644D3A9629A27CA200F05887 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644D3A9529A27CA200F05887 /* Worker.swift */; };
+		6477C39729A348D200EF6DC2 /* WorkerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C39629A348D200EF6DC2 /* WorkerSettings.swift */; };
+		6477C39929A34C2B00EF6DC2 /* JsonHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C39829A34C2B00EF6DC2 /* JsonHandling.swift */; };
+		6477C39B29A3563F00EF6DC2 /* WorkerSettingsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C39A29A3563F00EF6DC2 /* WorkerSettingsExtension.swift */; };
+		6477C39D29A3658F00EF6DC2 /* WorkerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C39C29A3658F00EF6DC2 /* WorkerService.swift */; };
 		64D2890D29A21FFA00D02B90 /* BluetoothDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D2890C29A21FFA00D02B90 /* BluetoothDevices.swift */; };
 		64D4A81F29A122D300423123 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D4A81E29A122D300423123 /* AppDelegate.swift */; };
 		64D4A82329A122D400423123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64D4A82229A122D400423123 /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 
 /* Begin PBXFileReference section */
 		644D3A9529A27CA200F05887 /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
+		6477C39629A348D200EF6DC2 /* WorkerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerSettings.swift; sourceTree = "<group>"; };
+		6477C39829A34C2B00EF6DC2 /* JsonHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHandling.swift; sourceTree = "<group>"; };
+		6477C39A29A3563F00EF6DC2 /* WorkerSettingsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerSettingsExtension.swift; sourceTree = "<group>"; };
+		6477C39C29A3658F00EF6DC2 /* WorkerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerService.swift; sourceTree = "<group>"; };
 		64D2890C29A21FFA00D02B90 /* BluetoothDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDevices.swift; sourceTree = "<group>"; };
 		64D4A81B29A122D300423123 /* MacBluetoothLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacBluetoothLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D4A81E29A122D300423123 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +80,10 @@
 				64D4A82F29A1293D00423123 /* Info.plist */,
 				64D2890C29A21FFA00D02B90 /* BluetoothDevices.swift */,
 				644D3A9529A27CA200F05887 /* Worker.swift */,
+				6477C39629A348D200EF6DC2 /* WorkerSettings.swift */,
+				6477C39829A34C2B00EF6DC2 /* JsonHandling.swift */,
+				6477C39A29A3563F00EF6DC2 /* WorkerSettingsExtension.swift */,
+				6477C39C29A3658F00EF6DC2 /* WorkerService.swift */,
 			);
 			path = MacBluetoothLock;
 			sourceTree = "<group>";
@@ -147,9 +159,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6477C39B29A3563F00EF6DC2 /* WorkerSettingsExtension.swift in Sources */,
+				6477C39729A348D200EF6DC2 /* WorkerSettings.swift in Sources */,
 				64D4A83429A12B5600423123 /* MainViewController.swift in Sources */,
 				644D3A9629A27CA200F05887 /* Worker.swift in Sources */,
 				64D4A81F29A122D300423123 /* AppDelegate.swift in Sources */,
+				6477C39D29A3658F00EF6DC2 /* WorkerService.swift in Sources */,
+				6477C39929A34C2B00EF6DC2 /* JsonHandling.swift in Sources */,
 				64D2890D29A21FFA00D02B90 /* BluetoothDevices.swift in Sources */,
 				64D4A82E29A1240700423123 /* ScreenLock.swift in Sources */,
 				64D4A83829A132FC00423123 /* MainViewControllerExtension.swift in Sources */,

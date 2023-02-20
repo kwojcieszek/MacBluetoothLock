@@ -10,8 +10,8 @@ import Cocoa
 class MainViewController: NSViewController {
 
     @IBOutlet weak var listOfDevices: NSComboBox!
-    @IBOutlet weak var timeOfSeconds: NSTextField!
-    @IBOutlet weak var timeOfSecondsStepper: NSStepper!
+    @IBOutlet weak var timeBeforeLock: NSTextField!
+    @IBOutlet weak var timeBeforeLockStepper: NSStepper!
     @IBOutlet weak var connectedBeforeScreenLock: NSSwitch!
     @IBOutlet weak var enableScreenLock: NSSwitch!
     
@@ -20,30 +20,37 @@ class MainViewController: NSViewController {
 
         self.listOfDevices.addItems(withObjectValues: BluetoothDevices().pairedDevices())
         
-        timeOfSeconds.stringValue = timeOfSecondsStepper.stringValue
-    }
-
-    override var representedObject: Any? {
-        didSet {
-       
+        guard let workerSettings = WorkerSettings.getSettingsFromJson() else{
+            return
         }
-    }
-    
-    @IBAction func timeOfSecondsStepperAction(_ sender: NSStepper) {
-        timeOfSeconds.stringValue = timeOfSecondsStepper.stringValue
-    }
-    
-    @IBAction func connectedBeforeScreenLockAction(_ sender: NSSwitch) {
-    }
-    
-    
-    @IBAction func enableScreenLockAction(_ sender: NSSwitch) {
         
-        if(self.enableScreenLock.state == NSControl.StateValue.on){
-            Worker.shared().start(5,"AirPods Pro",true)
-        }else{
-            Worker.shared().stop()
-        }
-            
+        self.listOfDevices.selectItem(withObjectValue: workerSettings.deviceName)
+        self.timeBeforeLock.stringValue = String(workerSettings.timeBeforeLock)
+        self.connectedBeforeScreenLock.state = workerSettings.connectedBeforeScreenLock ? .on : .off
+        self.enableScreenLock.state = workerSettings.enableScreenLock ? .on : .off
+    }
+    
+    @IBAction func timeBeforeLockStepperAction(_ sender: NSStepper) {
+        self.timeBeforeLock.stringValue = self.timeBeforeLockStepper.stringValue
+        self.setWorkerSettingsAndStart()
+    }
+    
+    @IBAction func workerSettingsAction(_ sender: Any) {
+        self.setWorkerSettingsAndStart()
+    }
+    
+    private func createWorkerSettings()->WorkerSettings{
+        
+        var workerSettings = WorkerSettings()
+        workerSettings.deviceName = self.listOfDevices.stringValue
+        workerSettings.timeBeforeLock = Int(self.timeBeforeLock.stringValue) ?? workerSettings.timeBeforeLock
+        workerSettings.connectedBeforeScreenLock = self.connectedBeforeScreenLock.state == .on ? true : false
+        workerSettings.enableScreenLock = self.enableScreenLock.state == .on ? true : false
+        return workerSettings
+    }
+    
+    private func setWorkerSettingsAndStart(){
+        let workerSettings = self.createWorkerSettings()
+        WorkerService().setConfigAndStartOrRestart(workerSettings)
     }
 }

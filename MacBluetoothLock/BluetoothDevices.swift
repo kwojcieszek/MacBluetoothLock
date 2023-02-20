@@ -7,8 +7,6 @@
 
 import Foundation
 import IOBluetooth
-// See https://developer.apple.com/reference/iobluetooth/iobluetoothdevice
-// for API details.
 
 class BluetoothDevices {
 
@@ -19,6 +17,7 @@ class BluetoothDevices {
         guard let devices = IOBluetoothDevice.pairedDevices() else {
             return devicesNames
         }
+        
         for item in devices {
             if let device = item as? IOBluetoothDevice {
                 devicesNames.append(device.name)

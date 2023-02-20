@@ -106,11 +106,14 @@
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SES-Eg-N3B">
                                 <rect key="frame" x="19" y="184" width="264" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="8HI-e1-Cv9">
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="8HI-e1-Cv9">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
+                                <connections>
+                                    <action selector="workerSettingsAction:" target="WlU-lH-XBO" id="4pb-e3-BWr"/>
+                                </connections>
                             </comboBox>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bep-XJ-dQh">
                                 <rect key="frame" x="20" y="133" width="66" height="21"/>
@@ -146,14 +149,14 @@
                                 <rect key="frame" x="18" y="77" width="42" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <action selector="connectedBeforeScreenLockAction:" target="WlU-lH-XBO" id="xlP-Fb-ile"/>
+                                    <action selector="workerSettingsAction:" target="WlU-lH-XBO" id="Wlp-22-Mgb"/>
                                 </connections>
                             </switch>
-                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" state="on" translatesAutoresizingMaskIntoConstraints="NO" id="a78-S8-Wuc">
+                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="a78-S8-Wuc">
                                 <rect key="frame" x="18" y="23" width="42" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <action selector="enableScreenLockAction:" target="WlU-lH-XBO" id="13b-R4-BcM"/>
+                                    <action selector="workerSettingsAction:" target="WlU-lH-XBO" id="7bu-1c-4dK"/>
                                 </connections>
                             </switch>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VJK-3p-oGa">
@@ -161,7 +164,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="3600" doubleValue="5" id="PZb-7J-gzs"/>
                                 <connections>
-                                    <action selector="timeOfSecondsStepperAction:" target="WlU-lH-XBO" id="cWg-Ff-ax7"/>
+                                    <action selector="timeBeforeLockStepperAction:" target="WlU-lH-XBO" id="W2Z-AI-YVJ"/>
                                 </connections>
                             </stepper>
                         </subviews>
@@ -170,19 +173,19 @@
                         <outlet property="connectedBeforeScreenLock" destination="LOr-4J-iCn" id="d2Y-yt-lal"/>
                         <outlet property="enableScreenLock" destination="a78-S8-Wuc" id="ZPM-Kx-bWe"/>
                         <outlet property="listOfDevices" destination="SES-Eg-N3B" id="fWW-X3-PEE"/>
-                        <outlet property="timeOfSeconds" destination="bep-XJ-dQh" id="vZR-de-hzT"/>
-                        <outlet property="timeOfSecondsStepper" destination="VJK-3p-oGa" id="tb8-5Z-Pty"/>
+                        <outlet property="timeBeforeLock" destination="bep-XJ-dQh" id="n1U-9z-mzA"/>
+                        <outlet property="timeBeforeLockStepper" destination="VJK-3p-oGa" id="uMD-oZ-vRd"/>
                     </connections>
                 </viewController>
                 <customObject id="Bx5-dW-tYL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-672" y="-299"/>
+            <point key="canvasLocation" x="-634" y="-299"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="wb0-eU-1cU">
             <objects>
                 <windowController id="3JY-Ei-Xaq" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="b41-WI-Pkq">
+                    <window key="window" title="MacBluetoothLock" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="b41-WI-Pkq">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="642" y="444" width="480" height="270"/>
@@ -214,7 +217,7 @@
                 </viewController>
                 <customObject id="Obj-kE-7Pl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-84" y="228"/>
+            <point key="canvasLocation" x="-84" y="237"/>
         </scene>
     </scenes>
 </document>
